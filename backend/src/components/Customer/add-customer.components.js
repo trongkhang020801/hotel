@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import CustomerDataService from "../services/customer.services";
+import CustomerDataService from "../../services/customer.services";
 
 export default class AddTutorial extends Component {
   constructor(props) {
@@ -155,7 +155,7 @@ export default class AddTutorial extends Component {
         {this.state.submitted ? (
           <div>
             <h4>You submitted successfully!</h4>
-            <button className="btn btn-success" onClick={this.newTutorial}>
+            <button className="btn btn-success" onClick={this.newCustomer}>
               Add
             </button>
           </div>

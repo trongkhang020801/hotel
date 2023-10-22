@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import CustomerDataService from "../services/customer.services";
-import { withRouter } from '../common/with-router';
+import CustomerDataService from "../../services/customer.services";
+import { withRouter } from '../../common/with-router';
 
 class Customer extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class Customer extends Component {
     this.onChangeaddressCustomer = this.onChangeaddressCustomer.bind(this);
     this.getCustomer = this.getCustomer.bind(this);
     // this.updatePublished = this.updatePublished.bind(this);
-    // this.updateTutorial = this.updateTutorial.bind(this);
+    this.updateTutorial = this.updateTutorial.bind(this);
     // this.deleteTutorial = this.deleteTutorial.bind(this);
 
     this.state = {
@@ -198,21 +198,21 @@ class Customer extends Component {
 //       });
 //   }
 
-//   updateTutorial() {
-//     TutorialDataService.update(
-//       this.state.currentTutorial.id,
-//       this.state.currentTutorial
-//     )
-//       .then(response => {
-//         console.log(response.data);
-//         this.setState({
-//           message: "The tutorial was updated successfully!"
-//         });
-//       })
-//       .catch(e => {
-//         console.log(e);
-//       });
-//   }
+  updateTutorial() {
+    CustomerDataService.update(
+      this.state.currentCustomer.idCustomer,
+      this.state.currentCustomer
+    )
+      .then(response => {
+        console.log(response.data);
+        this.setState({
+          message: "The tutorial was updated successfully!"
+        });
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
 
 //   deleteTutorial() {    
 //     TutorialDataService.delete(this.state.currentTutorial.id)
@@ -254,45 +254,96 @@ class Customer extends Component {
                   onChange={this.onChangeidDec}
                 />
               </div>
-
-              {/* <div className="form-group">
-                <label>
-                  <strong>Status:</strong>
-                </label>
-                {currentTutorial.published ? "Published" : "Pending"}
-              </div> */}
+              <div className="form-group">
+                <label htmlFor="nameCustomer">Name Customer</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="nameCustomer"
+                  value={currentCustomer.nameCustomer}
+                  onChange={this.onChangenameCustomer}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="scoreLevel">Scroe Level</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="scoreLevel"
+                  value={currentCustomer.scoreLevel}
+                  onChange={this.onChangescoreLevel}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="usedScoreLevel">Used Score Level usedScoreLevel</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="usedScoreLevel"
+                  value={currentCustomer.usedScoreLevel}
+                  onChange={this.onChangeusedScoreLevel}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="genderCustomer">Gender genderCustomer</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="genderCustomer"
+                  value={currentCustomer.genderCustomer}
+                  onChange={this.onChangegenderCustomer}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="dateOfBirth">idCustomer dateOfBirth</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="dateOfBirth"
+                  value={currentCustomer.dateOfBirth}
+                  onChange={this.onChangedateOfBirth}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="phoneNumberCustomer">idDec phoneNumberCustomer</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="phoneNumberCustomer"
+                  value={currentCustomer.phoneNumberCustomer}
+                  onChange={this.onChangephoneNumberCustomer}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="mailCustomer">idCustomer mailCustomer</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="mailCustomer"
+                  value={currentCustomer.mailCustomer}
+                  onChange={this.onChangemailCustomer}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="addressCustomer">idDec addressCustomer</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="addressCustomer"
+                  value={currentCustomer.addressCustomer}
+                  onChange={this.onChangeaddressCustomer}
+                />
+              </div>
             </form>
 
-            {/* {currentTutorial.published ? (
-              <button
-                className="badge badge-primary mr-2"
-                onClick={() => this.updatePublished(false)}
-              >
-                UnPublish
-              </button>
-            ) : (
-              <button
-                className="badge badge-primary mr-2"
-                onClick={() => this.updatePublished(true)}
-              >
-                Publish
-              </button>
-            )}
-
-            <button
-              className="badge badge-danger mr-2"
-              onClick={this.deleteTutorial}
-            >
-              Delete
-            </button>
-
+            
             <button
               type="submit"
-              className="badge badge-success"
+              className="btn btn-outline-secondary btnupdate"
               onClick={this.updateTutorial}
             >
               Update
-            </button> */}
+            </button>
             <p>{this.state.message}</p>
           </div>
         ) : (

@@ -13,6 +13,8 @@ import PinIcon from '@mui/icons-material/Pin';
 import FiberNewIcon from '@mui/icons-material/FiberNew';
 import BedIcon from '@mui/icons-material/Bed';
 import { Link } from "react-router-dom";
+
+import "./slidebar.scss"
 const SlideBar = () =>{
     return (
     <div className="sidebar">
@@ -125,7 +127,7 @@ const SlideBar = () =>{
                   <PersonOutlineIcon className="icon" />
                   <span>Người dùng</span>
                 </li> */}
-              <p className="title">Người dùng</p>
+              {/* <p className="title">Người dùng</p> */}
               <li>
                 <AccountCircleOutlinedIcon className="icon" />
                 <span>Thông tin cá nhân</span>

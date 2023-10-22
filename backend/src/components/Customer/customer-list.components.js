@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import CustomerDataService from "../services/customer.services";
+import CustomerDataService from "../../services/customer.services";
 import { Link } from "react-router-dom";
 import { DataGrid } from "@mui/x-data-grid";
 
@@ -95,11 +95,11 @@ export default class CustomerList extends Component {
 
   render() {
     const useColumns =[
-      {
-        field: "id",
-        headerName: "id",
-        width: 50,
-      },
+      // {
+      //   field: "id",
+      //   headerName: "id",
+      //   width: 50,
+      // },
         {
           field: "idCustomer",
           headerName: "idCustomer",
@@ -143,7 +143,7 @@ export default class CustomerList extends Component {
         {
           field: "mailCustomer",
           headerName: "Email",
-          width: 100,
+          width: 120,
         },
         {
           field: "addressCustomer",
@@ -158,7 +158,7 @@ export default class CustomerList extends Component {
       {
         field: "action",
         headerName: "Action",
-        width: 200,
+        width: 150,
         renderCell: (params) => {
           return (
             <div className="cellAction">
@@ -176,35 +176,14 @@ export default class CustomerList extends Component {
         },
       }
     ];
-    const { searchnameCustomer, customers, currentTutorial, currentIndex } = this.state;
-
+    const { customers } = this.state;
     return (
       <div className="list row">
-        <div className="col-md-8">
-          <div className="input-group mb-3">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Search by Name Customer"
-              value={searchnameCustomer}
-              onChange={this.onChangeSearchnameCustomer}
-            />
-            <div className="input-group-append">
-              <button
-                className="btn btn-outline-secondary"
-                type="button"
-                onClick={this.searchnameCustomer}
-              >
-                Search
-              </button>
-            </div>
-          </div>
-        </div>
         <div className="col-md-12">
-          <h4>Customer List</h4>
+          <h4 className="titleCustomer">Customer List</h4>
           <div>
-            <Link to={"/add"} style={{ textDecoration: "none" }}>
-              <div className="btn btn-primary">Add</div>
+            <Link to={"/customer/add"} style={{ textDecoration: "none" }}>
+              <div className="btn btn-primary add">Add</div>
             </Link>
           </div>
           <div className="datatable">
@@ -213,9 +192,8 @@ export default class CustomerList extends Component {
                 key={customers.id}
                 rows={customers}
                 columns={useColumns.concat(actionColumn)}
-                pageSize={9}
-                rowsPerPageOptions={[10]}
-                // checkboxSelection
+                // pageSize={9}
+                // rowsPerPageOptions={[9]}
               />
           </div>
         </div>

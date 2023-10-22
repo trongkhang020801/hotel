@@ -1,45 +1,30 @@
-import React, { Component } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import React, { useContext  } from "react";
+import Home from "./pages/Home/Home";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.scss";
-import SlideBar from "./components/slidebar/slidebar";
-import Widget from "./components/widget/widget";
-import Chart from "./components/chart/chart"
-import Featured from "./components/featured/Featured";
+// import "./style/dark.scss";
+import "./App.scss"
+import Customer from "./pages/Customer/customer";
+import AddCustomer from "./pages/Customer/AddCustomer/AddCustomer";
+import UpdateCustomer from "./pages/Customer/UpdateCustomer/UpdateCustomer";
 
-import AddCustomer from "./components/add-customer.components";
-import Customer from "./components/customer.components";
-import CustomerlsList from "./components/customer-list.components";
-
-class App extends Component {
-  render() {
+function App() {
     return (
-      <div className="container">
-        <div>
-          <SlideBar/>
-          <div className="row wapper">
-          <div className="col-9">
-            <Routes>
-              {/* <Route path="/" element={<CustomerlsList/>} /> */}
-              <Route path="/customer" element={<CustomerlsList/>} />
-              <Route path="/add" element={<AddCustomer/>} />
-              <Route path="/customer/:id" element={<Customer/>} />
-            </Routes>
-          </div>
-          <div className="widgets col-3 row-1">
-            <Widget type="user" />
-            <Widget type="employee" />
-            <Widget type="order" />
-            <Widget type="room" />
-          </div>
-          
-          </div>
-          <Featured/>
-          <Chart title="6 months ago (Revenue)" aspect={2/1}/>
-        </div>
-      </div>
+      <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/">
+            <Route index element={<Home />} />
+            <Route path="customer" >
+                <Route index element={<Customer />} />
+                <Route path="add" element={<AddCustomer />} />
+                <Route path=":id" element={<UpdateCustomer />} />
+            </Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </div>
     );
-  }
 }
 
 export default App;
