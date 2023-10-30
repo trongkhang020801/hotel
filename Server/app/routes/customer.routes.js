@@ -23,6 +23,9 @@ module.exports = app => {
   
     // Delete all customer
     router.delete("/", customer.deleteAll);
+
+    //Login for customer
+    router.post("/login", customer.LoginCustomer)
   
     app.use('/api/customer', router);
   };

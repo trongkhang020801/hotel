@@ -25,8 +25,11 @@ class CustomerDataService {
 //     return http.delete(`/tutorials`);
 //   }
 
-  findByNameCustomer(nameCustomer) {
-    return http.get(`/customer/nameCustomer/${nameCustomer}`);
+  // findByNameCustomer(nameCustomer) {
+  //   return http.get(`/customer/nameCustomer/${nameCustomer}`);
+  // }
+  login(data) {
+    return http.post("/customer/login", data);
   }
 }
 

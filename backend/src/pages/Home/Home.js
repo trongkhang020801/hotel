@@ -2,13 +2,14 @@ import Widget from "../../components/widget/widget";
 import SlideBar from "../../components/slidebar/slidebar";
 import Featured from "../../components/featured/Featured";
 import Chart from "../../components/chart/chart"
+import Navbar from "../../components/Navbar/Navbar";
 import "./home.scss"
 const Home = () =>{
     return (
         <div className="home">
           <SlideBar />
           <div className="homeContainer">
-            {/* <Navbar /> */}
+            <Navbar />
             <div className="widgets">
               <Widget type="user" />
               <Widget type="employee" />

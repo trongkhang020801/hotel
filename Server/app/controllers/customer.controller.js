@@ -155,3 +155,23 @@ exports.findnameCustomer = (req, res) => {
       });
     });
 };
+exports.LoginCustomer = (req, res) =>{
+  
+  const id = req.body.idCustomer;
+  const mailCustomer = req.body.mailCustomer;
+    Customer.findOne({where: {idCustomer: id, mailCustomer: mailCustomer}})
+    .then(data => {
+      if (data) {
+        res.send(data);
+      } else {
+        res.status(404).send({
+          message: `Cannot find Customer with idCustomer=${id}.`
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error retrieving Customer with idCustomer=" + id
+      });
+    });
+}
