@@ -137,7 +137,7 @@ const SlideBar = () =>{
 
               <li>
                 <LoginIcon className="icon" />
-                <span>Login</span>
+                <span>Đăng Nhập</span>
               </li>
               </Link>
             </ul>
